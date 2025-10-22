@@ -2,8 +2,10 @@ import { faker } from '@faker-js/faker';
 
 describe('Cenário 2 - Cadastro', () => {
  
+  
+
   it.only('Deve exibir erro ao tentar cadastrar com e-mail inválido', () => {
-    cy.visit('https://demo.nopcommerce.com/register?returnUrl=%2F '); 
+    cy.visit('https://petstore.octoperf.com/actions/Catalog.action'); 
     //cy.get('#gender\\male').click();
   
   });

@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 
 describe('Cenário 2 - Cadastro', () => {
 
-  it('CTT01:Cadastrar com e-mail inválido', () => {
+  it('CTT01: Cadastrar com e-mail inválido', () => {
     cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm=');
     var pws = faker.internet.password(8);
     var username = faker.internet.username();
@@ -20,10 +20,7 @@ describe('Cenário 2 - Cadastro', () => {
     cy.get('[name="account.zip"]').type(faker.location.zipCode());
     cy.get('[name="account.country"]').type(faker.location.country());
     cy.get('[name="newAccount"]').click();
-
     cy.get('a[href$="signonForm="]').click();
-
-    
     cy.get('[name="password"]').clear().type(pws);
     cy.get('input[name="signon"]').click();
     cy.get('a[href$="editAccountForm="]').click();
@@ -50,17 +47,14 @@ describe('Cenário 2 - Cadastro', () => {
     cy.get('[name="account.zip"]').type(faker.location.zipCode());
     cy.get('[name="account.country"]').type(faker.location.country());
     cy.get('[name="newAccount"]').click();
-
     cy.get('a[href$="signonForm="]').click();
-
-    
     cy.get('[name="password"]').clear().type(pws);
     cy.get('input[name="signon"]').click();
     cy.get('a[href$="editAccountForm="]').click();
     
   });
 
-  it('CTT03:astrar com todos os campos válidos', () => {
+  it('CTT03: Cadastrar com todos os campos válidos', () => {
     cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm=');
     var country = faker.location.country().substring(0, 20); // é necessario ser  <= 20 caracteres se não da erro!
     var pws = faker.internet.password(8);
@@ -79,10 +73,7 @@ describe('Cenário 2 - Cadastro', () => {
     cy.get('[name="account.zip"]').type(faker.location.zipCode());
     cy.get('[name="account.country"]').type(country);
     cy.get('[name="newAccount"]').click();
-
     cy.get('a[href$="signonForm="]').click();
-
-    
     cy.get('[name="password"]').clear().type(pws);
     cy.get('input[name="signon"]').click();
     cy.get('a[href$="editAccountForm="]').click();

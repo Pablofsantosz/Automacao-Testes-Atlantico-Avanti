@@ -5,8 +5,9 @@ describe('Cenário 2 - Cadastro', () => {
   
 
   it.only('Deve exibir erro ao tentar cadastrar com e-mail inválido', () => {
-    cy.visit('https://petstore.octoperf.com/actions/Catalog.action'); 
-    //cy.get('#gender\\male').click();
+    cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm='),{}; 
+    cy.get('[name="username"]').type(faker.internet.userName());
+
   
   });
 

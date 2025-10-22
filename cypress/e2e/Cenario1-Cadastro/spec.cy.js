@@ -1,22 +1,89 @@
 import { faker } from '@faker-js/faker';
 
 describe('Cenário 2 - Cadastro', () => {
- 
-  
 
-  it.only('Deve exibir erro ao tentar cadastrar com e-mail inválido', () => {
-    cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm='),{}; 
-    cy.get('[name="username"]').type(faker.internet.userName());
+  it('Deve exibir erro ao tentar cadastrar com e-mail inválido', () => {
+    var pws = faker.internet.password(8);
+    cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm=');
 
-  
+    cy.get('[name="username"]').type('ENXO');
+    cy.get('[name="password"]').type(pws); 
+    cy.get('[name="repeatedPassword"]').type(pws);
+    cy.get('[name="account.firstName"]').type(faker.person.firstName());
+    cy.get('[name="account.lastName"]').type(faker.person.lastName());
+    cy.get('[name="account.email"]').type('emailinvalido'); // email inválido 
+    cy.get('[name="account.phone"]').type(faker.phone.number('##########'));
+    cy.get('[name="account.address1"]').type(faker.location.streetAddress());
+    cy.get('[name="account.city"]').type(faker.location.city());
+    cy.get('[name="account.state"]').type(faker.location.state());
+    cy.get('[name="account.zip"]').type(faker.location.zipCode());
+    cy.get('[name="account.country"]').type(faker.location.country());
+    cy.get('[name="newAccount"]').click();
+
+    
+
+    
+    
   });
 
-  it('Deve exibir erro ao tentar cadastrar com first name inválido', () => {
-    // código do teste 2
-  });
+  it('Deve exibir erro ao tentar cadastrar com first name inválido', () => {
+    var pws = faker.internet.password(8);
+    const country = faker.location.country().substring(0, 20);
+    cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm=');
+    cy.get('[name="username"]').type(pws);
+    cy.get('[name="password"]').type(pws);
+    cy.get('[name="repeatedPassword"]').type('senha123');
+    cy.get('[name="account.firstName"]').type('@@@');
+    cy.get('[name="account.lastName"]').type(faker.person.lastName());
+    cy.get('[name="account.email"]').type(faker.internet.email());
+    cy.get('[name="account.phone"]').type(faker.phone.number('##########'));
+    cy.get('[name="account.address1"]').type(faker.location.streetAddress());
+    cy.get('[name="account.city"]').type(faker.location.city());
+    cy.get('[name="account.state"]').type(faker.location.state());
+    cy.get('[name="account.zip"]').type(faker.location.zipCode());
+    cy.get('[name="account.country"]').type(faker.location.country());
+    cy.get('[name="newAccount"]').click();
 
-  it('Deve cadastrar com todos os campos válidos', () => {
-    // código do teste 3
-  });
+    cy.get('a[href$="signonForm="]').click();
+
+    
+    cy.get('[name="password"]').clear().type(pws);
+    cy.get('input[name="signon"]').click();
+    
+  });
+
+  it.only('Deve cadastrar com todos os campos válidos', () => {
+    cy.visit('https://petstore.octoperf.com/actions/Account.action?newAccountForm=');
+
+    var country = faker.location.country().substring(0, 20); // é necessario ser  <= 20 caracteres se não da erro!
+    var pws = faker.internet.password(8);
+    var username = faker.internet.username();
+    cy.get('[name="username"]').type(username);
+    cy.get('[name="password"]').type(pws);
+    cy.get('[name="repeatedPassword"]').type(pws);
+    cy.get('[name="account.firstName"]').type(faker.person.firstName());
+    cy.get('[name="account.lastName"]').type(faker.person.lastName());
+    cy.get('[name="account.email"]').type(faker.internet.email());
+    cy.get('[name="account.phone"]').type(faker.phone.number('##########'));
+    cy.get('[name="account.address1"]').type(faker.location.streetAddress());
+    cy.get('[name="account.city"]').type(faker.location.city());
+    cy.get('[name="account.state"]').type(faker.location.state());
+    cy.get('[name="account.zip"]').type(faker.location.zipCode());
+    cy.get('[name="account.country"]').type(country);
+    cy.get('[name="newAccount"]').click();
+
+    cy.get('a[href$="signonForm="]').click();
+
+    
+    cy.get('[name="password"]').clear().type(pws);
+    cy.get('input[name="signon"]').click();
+   
+    //<a href="/actions/Account.action?editAccountForm=">My Account</a>
+    cy.get('a[href$="editAccountForm="]').should('be.visible');
+    cy.get('a[href$="editAccountForm="]').click();
+
+    
+    
+  });
 
 });

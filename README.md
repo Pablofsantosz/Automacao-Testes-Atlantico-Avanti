@@ -72,14 +72,10 @@ Foram automatizados 2 cenários de teste principais, cobrindo os fluxos de cadas
     npm install
     ```
 
-4.  **Executar os testes (Modo Interativo - UI):**
+4.  **Executar os testes :**
     * Este comando abre a interface gráfica do Cypress para você ver e selecionar os testes.
     ```bash
     npx cypress open
     ```
 
-5.  **Executar os testes (Modo Headless - Terminal):**
-    * Este comando roda todos os testes diretamente no terminal (ótimo para integração contínua).
-    ```bash
-    npx cypress run
-    ```
+

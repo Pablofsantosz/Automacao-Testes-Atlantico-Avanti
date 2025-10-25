@@ -4,7 +4,9 @@ Aqui você encontrará um conjunto de testes desenvolvidos com Cypress para vali
 
 Equipe:
 José Ben Hur Nascimento de Oliveira
+
 Pablo Santos
+
 Anezia beatriz antas pereira de lima
 
 Referência: https://petstore.octoperf.com/actions/Catalog.action
@@ -14,7 +16,9 @@ Referência: https://petstore.octoperf.com/actions/Catalog.action
 ### Pré-requisito:
 
 -Node.js - Você encontra em: https://nodejs.org/en/
+
 -Visual Studio Code ( ou editor de sua prefrência) - você encontra em: https://code.visualstudio.com/download
+
 -Git: você encontra em: https://git-scm.com/downloads
 
 Via terminal, rode os seguintes comandos:

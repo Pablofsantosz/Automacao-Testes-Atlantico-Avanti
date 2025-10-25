@@ -7,7 +7,7 @@ José Ben Hur Nascimento de Oliveira
 Pablo Santos
 Anezia beatriz antas pereira de lima
 
-Referência: [https://golden-movie-studio.vercel.app/](https://petstore.octoperf.com/actions/Catalog.action)
+Referência: https://petstore.octoperf.com/actions/Catalog.action
 
 ## Clonando e executando em sua máquina
 
